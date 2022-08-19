@@ -1,5 +1,5 @@
 {
-  "name": "@pancakeswap/sdk",
+  "name": "@smartdev1990/sdk-v3",
   "license": "MIT",
   "version": "2.4.3",
   "description": "🛠 An SDK for building applications on top of Pancakeswap.",
@@ -8,7 +8,10 @@
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/SmartDev1990/briseswap-sdkv3.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmartDev1990/briseswap-sdkv3.git"
+  },
   "keywords": [
     "pancakeswap",
     "bsc"
@@ -54,5 +57,13 @@
     "printWidth": 120,
     "semi": false,
     "singleQuote": true
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/SmartDev1990/briseswap-sdkv3/issues"
+  },
+  "homepage": "https://github.com/SmartDev1990/briseswap-sdkv3#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
