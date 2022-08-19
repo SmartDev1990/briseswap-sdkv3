@@ -1,39 +1,27 @@
 import JSBI from 'jsbi'
 
 // exports for external consumption
-export type BigintIsh = JSBI | number | string
+export type BigintIsh = JSBI | bigint | string
 
 export enum ChainId {
-  // ETHEREUM = 1,
-  // RINKEBY = 4,
-  BSC = 32520,
-  BSC_TESTNET = 97,
+  MAINNET = 32520,
+  TESTNET = 338,
 }
 
 export enum TradeType {
   EXACT_INPUT,
-  EXACT_OUTPUT,
+  EXACT_OUTPUT
 }
 
 export enum Rounding {
   ROUND_DOWN,
   ROUND_HALF_UP,
-  ROUND_UP,
+  ROUND_UP
 }
 
-export const FACTORY_ADDRESS = '0x5c8368097Ffe1C0B63954f5826C5270557e204C4'
+export const FACTORY_ADDRESS = '0x3C0b73013B03767fBB339edF40FDC88264bB584b'
 
-export const FACTORY_ADDRESS_MAP = {
-  [ChainId.BSC]: FACTORY_ADDRESS,
-  [ChainId.BSC_TESTNET]: '0x6725f303b657a9451d8ba641348b6761a6cc7a17',
-}
-
-export const INIT_CODE_HASH = '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5'
-
-export const INIT_CODE_HASH_MAP = {
-  [ChainId.BSC]: INIT_CODE_HASH,
-  [ChainId.BSC_TESTNET]: '0xd0d4c4cd0848c93cb4fd1f498d7013ee6bfb25783ea21593d5834f5d250ece66',
-}
+export const INIT_CODE_HASH = '0x02468aefeba9f2c6c79b6429e15d81843070e5c734af90111f9a9c53fef29ab9'
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
 
@@ -50,10 +38,10 @@ export const FEES_DENOMINATOR = JSBI.BigInt(10000)
 
 export enum SolidityType {
   uint8 = 'uint8',
-  uint256 = 'uint256',
+  uint256 = 'uint256'
 }
 
 export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
-  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'),
+  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
 }

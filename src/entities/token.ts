@@ -84,28 +84,27 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 //   )
 // }
 
-export const WBNB = {
-  [ChainId.BSC]: new Token(
-    ChainId.BSC,
+export const WETH = {
+  [ChainId.MAINNET]: new Token(
+    ChainId.MAINNET,
     '0x0eb9036cbE0f052386f36170c6b07eF0a0E3f710',
     18,
     'WBRISE',
-    'Wrapped BRISE',
-    'https://www.bitgert.com'
+    'Wrapped WBRISE',
+    'https://bitgert.com'
   ),
-  [ChainId.BSC_TESTNET]: new Token(
-    ChainId.BSC_TESTNET,
+  [ChainId.TESTNET]: new Token(
+    ChainId.TESTNET,
     '0x0eb9036cbE0f052386f36170c6b07eF0a0E3f710',
     18,
-    'WBNB',
-    'Wrapped BRISE',
-    'https://www.bitgert.com'
-  ),
+    'WBRISE',
+    'Wrapped WBRISE',
+    'https://bitgert.com'
 }
 
 export const WNATIVE = {
   // [ChainId.ETHEREUM]: WETH9[ChainId.ETHEREUM],
   // [ChainId.RINKEBY]: WETH9[ChainId.RINKEBY],
-  [ChainId.BSC]: WBNB[ChainId.BSC],
-  [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
+  [ChainId.MAINNET]: WETH[ChainId.MAINNET],
+  [ChainId.TESTNET]: WETH[ChainId.TESTNET],
 }
