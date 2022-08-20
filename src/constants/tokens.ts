@@ -8,11 +8,6 @@ export const USDC: TokenMap = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, USDC_ADDRESS[ChainId.MAINNET], 6, 'USDC', 'USD Coin'),
 }
 
-export const USD: TokenMap = {
-  ...USDC,
-  [ChainId.CELO]: new Token(ChainId.CELO, USD_ADDRESS[ChainId.CELO], 18, 'cUSD', 'Celo Dollar'),
-}
-
 export const WETH9: TokenMap = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, WETH9_ADDRESS[ChainId.MAINNET], 18, 'WETH', 'Wrapped Ether')
 }
@@ -22,5 +17,5 @@ export const WNATIVE: TokenMap = {
 }
 
 export const RICE: ChainTokenMap = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, SUSHI_ADDRESS[ChainId.MAINNET], 18, 'RICE', 'Rice Token'),
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, RICE_ADDRESS[ChainId.MAINNET], 18, 'RICE', 'Rice Token'),
 }

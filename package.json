@@ -1,5 +1,5 @@
 {
-  "name": "@sushiswap/core-sdk",
+  "name": "@smartdev1990/sdkv3",
   "version": "1.0.0-canary.133",
   "license": "MIT",
   "main": "dist/index.js",
@@ -9,7 +9,7 @@
   ],
   "module": "dist/core-sdk.esm.js",
   "repository": {
-    "url": "sushiswap/sdk",
+    "url": "git+https://github.com/SmartDev1990/briseswap-sdkv3.git",
     "directory": "packages/core-sdk"
   },
   "publishConfig": {
@@ -39,5 +39,13 @@
     "@types/big.js": "^6.1.0",
     "tsdx": "^0.14.1"
   },
-  "gitHead": "78356bcd8a711c82124fe00423bb566d13f2cc1c"
+  "bugs": {
+    "url": "https://github.com/sushiswap/sdk/issues"
+  },
+  "homepage": "https://github.com/sushiswap/sdk#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "description": ""
 }

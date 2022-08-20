@@ -22,7 +22,7 @@ export const WNATIVE_ADDRESS: AddressMap = {
 }
 
 export const DAI_ADDRESS: AddressMap = {
-  [ChainId.MAINNET]: '0x5d8CEEf69160a9692471670D5f7147157656fF46',
+  [ChainId.MAINNET]: '',
 }
 
 export const USDT_ADDRESS: AddressMap = {
@@ -104,7 +104,7 @@ export const MASTERCHEF_V2_ADDRESS: AddressMap = {
 }
 
 export const ENS_REGISTRAR_ADDRESS: AddressMap = {
-  [ChainId.MAINNET]: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+  [ChainId.MAINNET]: '',
 }
 
 export const ZAPPER_ADDRESS: AddressMap = {
