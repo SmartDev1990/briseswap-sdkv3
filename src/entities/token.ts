@@ -1,40 +1,30 @@
+import { AbstractCurrency } from './AbstractCurrency'
+import { Currency } from './Currency'
 import invariant from 'tiny-invariant'
-import { ChainId } from '../constants'
-import { validateAndParseAddress } from '../utils'
-import { Currency } from './currency'
+import { validateAndParseAddress } from '../functions/validateAndParseAddress'
 
 /**
  * Represents an ERC20 token with a unique address and some metadata.
  */
-export class Token extends Currency {
-  public readonly chainId: ChainId
+export class Token extends AbstractCurrency {
+  public readonly chainId: number
   public readonly address: string
-  public readonly projectLink?: string
 
-  public constructor(
-    chainId: ChainId,
-    address: string,
-    decimals: number,
-    symbol?: string,
-    name?: string,
-    projectLink?: string
-  ) {
-    super(decimals, symbol, name)
+  public readonly isNative: false = false
+  public readonly isToken: true = true
+
+  public constructor(chainId: number, address: string, decimals: number, symbol?: string, name?: string) {
+    super(chainId, decimals, symbol, name)
     this.chainId = chainId
     this.address = validateAndParseAddress(address)
-    this.projectLink = projectLink
   }
 
   /**
    * Returns true if the two tokens are equivalent, i.e. have the same chainId and address.
    * @param other other token to compare
    */
-  public equals(other: Token): boolean {
-    // short circuit on reference equality
-    if (this === other) {
-      return true
-    }
-    return this.chainId === other.chainId && this.address === other.address
+  public equals(other: Currency): boolean {
+    return other.isToken && this.chainId === other.chainId && this.address === other.address
   }
 
   /**
@@ -48,6 +38,20 @@ export class Token extends Currency {
     invariant(this.address !== other.address, 'ADDRESSES')
     return this.address.toLowerCase() < other.address.toLowerCase()
   }
+
+  /**
+   * Return this token, which does not need to be wrapped
+   */
+  public get wrapped(): Token {
+    return this
+  }
+
+  /**
+   * Return logo
+   */
+  // public get logo(): string | null {
+  //   return this.chainId in CHAIN_KEY ? `https://raw.githubusercontent.com/sushiswap/logos/main/network/${CHAIN_KEY[this.chainId]}/.jpg` : undefined
+  // }
 }
 
 /**
@@ -63,48 +67,4 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   } else {
     return currencyA === currencyB
   }
-}
-
-// export const WETH9 = {
-//   [ChainId.ETHEREUM]: new Token(
-//     ChainId.ETHEREUM,
-//     '0xc778417E063141139Fce010982780140Aa0cD5Ab',
-//     18,
-//     'WETH',
-//     'Wrapped Ether',
-//     'https://weth.io'
-//   ),
-//   [ChainId.RINKEBY]: new Token(
-//     ChainId.RINKEBY,
-//     '0xc778417E063141139Fce010982780140Aa0cD5Ab',
-//     18,
-//     'WETH',
-//     'Wrapped Ether',
-//     'https://weth.io'
-//   )
-// }
-
-export const WETH = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0x0eb9036cbE0f052386f36170c6b07eF0a0E3f710',
-    18,
-    'WBRISE',
-    'Wrapped WBRISE',
-    'https://bitgert.com'
-  ),
-  [ChainId.TESTNET]: new Token(
-    ChainId.TESTNET,
-    '0x0eb9036cbE0f052386f36170c6b07eF0a0E3f710',
-    18,
-    'WBRISE',
-    'Wrapped WBRISE',
-    'https://bitgert.com'
-}
-
-export const WNATIVE = {
-  // [ChainId.ETHEREUM]: WETH9[ChainId.ETHEREUM],
-  // [ChainId.RINKEBY]: WETH9[ChainId.RINKEBY],
-  [ChainId.MAINNET]: WETH[ChainId.MAINNET],
-  [ChainId.TESTNET]: WETH[ChainId.TESTNET],
 }

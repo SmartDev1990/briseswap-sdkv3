@@ -1,69 +1,43 @@
 {
-  "name": "@smartdev1990/sdk-v3",
+  "name": "@sushiswap/core-sdk",
+  "version": "1.0.0-canary.133",
   "license": "MIT",
-  "version": "2.4.3",
-  "description": "🛠 An SDK for building applications on top of Pancakeswap.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "module": "dist/core-sdk.esm.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SmartDev1990/briseswap-sdkv3.git"
+    "url": "sushiswap/sdk",
+    "directory": "packages/core-sdk"
   },
-  "keywords": [
-    "pancakeswap",
-    "bsc"
-  ],
-  "module": "dist/sdk.esm.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "lint": "tsdx lint src test",
     "build": "tsdx build",
-    "start": "tsdx watch",
-    "test": "tsdx test",
-    "prepublishOnly": "tsdx build"
+    "watch": "tsdx watch",
+    "test": "tsdx test --passWithNoTests",
+    "prepublishOnly": "npx tsdx build"
   },
   "dependencies": {
-    "big.js": "^5.2.2",
+    "@ethersproject/address": "^5.4.0",
+    "@ethersproject/bignumber": "^5.4.0",
+    "@ethersproject/providers": "^5.4.0",
+    "@ethersproject/solidity": "^5.4.0",
+    "big.js": "^6.1.1",
     "decimal.js-light": "^2.5.0",
-    "jsbi": "^3.1.4",
+    "jsbi": "^4.1.0",
     "tiny-invariant": "^1.1.0",
-    "tiny-warning": "^1.0.3",
+    "tiny-warning": "^1.0.0",
     "toformat": "^2.0.0"
   },
-  "peerDependencies": {
-    "@ethersproject/address": "^5.0.0",
-    "@ethersproject/contracts": "^5.0.0",
-    "@ethersproject/networks": "^5.0.0",
-    "@ethersproject/providers": "^5.0.0",
-    "@ethersproject/solidity": "^5.0.0"
-  },
   "devDependencies": {
-    "@ethersproject/address": "^5.0.2",
-    "@ethersproject/contracts": "^5.0.2",
-    "@ethersproject/networks": "^5.0.2",
-    "@ethersproject/providers": "^5.0.5",
-    "@ethersproject/solidity": "^5.0.2",
-    "@types/big.js": "^4.0.5",
-    "@types/jest": "^24.0.25",
-    "babel-plugin-transform-jsbi-to-bigint": "^1.3.1",
-    "tsdx": "^0.12.3"
+    "@types/big.js": "^6.1.0",
+    "tsdx": "^0.14.1"
   },
-  "engines": {
-    "node": ">=10"
-  },
-  "prettier": {
-    "printWidth": 120,
-    "semi": false,
-    "singleQuote": true
-  },
-  "bugs": {
-    "url": "https://github.com/SmartDev1990/briseswap-sdkv3/issues"
-  },
-  "homepage": "https://github.com/SmartDev1990/briseswap-sdkv3#readme",
-  "directories": {
-    "test": "test"
-  },
-  "author": ""
+  "gitHead": "78356bcd8a711c82124fe00423bb566d13f2cc1c"
 }
